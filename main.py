@@ -10,7 +10,7 @@ def process_file(filename):
         origin_column_name = valid_date_column(file)
         for row in csv_reader:
             time_object = datetime.strptime(row[origin_column_name][-8:], "%H:%M:%S").time()
-            if time_object >= time(6, 0) and time_object <= time(12, 0):
+            if time_object >= time(6, 0) and time_object <= time(11, 59):
                 stations_dict[row['nombre_estacion_origen']] += 1
     
     top3_hotspots = sorted(stations_dict.items(), key=lambda x: x[1], reverse=True)[:3]
